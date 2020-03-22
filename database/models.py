@@ -5,6 +5,7 @@ class User(db.Model):
     public_user_id  = db.Column(db.String(64), unique=True)
     username        = db.Column(db.String(64))
     password        = db.Column(db.String(64))
+    admin           = db.Column(db.Boolean)
 
 class Example(db.Model):
     id              = db.Column(db.Integer, primary_key=True)
