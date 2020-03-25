@@ -6,12 +6,13 @@ from resources.errors import errors
 
 
 APP_DEBUG                       = True
-APP_HOST                        = "localhost"
+APP_HOST                        = "0.0.0.0"
 APP_PORT                        = "5002"
 APP_SSL                         = None
 APP_SECRET_KEY                  = "secretkey"
 APP_ERRORS                      = errors
 APP_DB_URI                      = "sqlite:///database\db.sqlite3"
+#APP_DB_URI                      = "sqlite:////home/pi/carsharing_api/database/db.sqlite3"
 APP_DB_TRACK_MODIFICATIONS      = True
 
 app = Flask(__name__)
@@ -22,6 +23,8 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]    = APP_DB_TRACK_MODIFICATIONS
 
 api = Api(app, errors=APP_ERRORS)
 db = SQLAlchemy(app)
+
+import database.models
 
 if __name__ == '__main__':
     from resources.routes import initialize_routes

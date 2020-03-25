@@ -1,6 +1,7 @@
-from .api_auth import Login
+from resources.api_auth import Login
+
 from resources.api_users import UserApi, UsersApi
-from .api_example import Example
+from resources.api_example import Example
 
 
 def initialize_routes(api):
