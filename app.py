@@ -2,17 +2,18 @@ from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
+import os
+
 from resources.errors import errors
 
 
 APP_DEBUG                       = True
-APP_HOST                        = "0.0.0.0"
+APP_HOST                        = "localhost"
 APP_PORT                        = "5002"
 APP_SSL                         = None
 APP_SECRET_KEY                  = "secretkey"
 APP_ERRORS                      = errors
-APP_DB_URI                      = "sqlite:///database\db.sqlite3"
-#APP_DB_URI                      = "sqlite:////home/pi/carsharing_api/database/db.sqlite3"
+APP_DB_URI                      = "sqlite3:///"  + os.path.abspath("database/db.sqlite3")
 APP_DB_TRACK_MODIFICATIONS      = True
 
 app = Flask(__name__)
